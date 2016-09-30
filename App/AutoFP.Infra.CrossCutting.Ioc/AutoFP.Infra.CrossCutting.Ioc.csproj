@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BA4774B-7F8B-4BBE-8341-99D4D0889C99}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoFP.Infra.CrossCutting.Ioc</RootNamespace>
+    <AssemblyName>AutoFP.Infra.CrossCutting.Ioc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DomainEvent\DomainEventsContainer.cs" />
+    <Compile Include="Gerencia\GerenciaContainer.cs" />
+    <Compile Include="Loja\Modules\Application\ApplicationServiceModule.cs" />
+    <Compile Include="Loja\Modules\Domain\DomainEventsModule.cs" />
+    <Compile Include="Loja\Modules\Domain\FactoryModule.cs" />
+    <Compile Include="Loja\Modules\Domain\ServiceModule.cs" />
+    <Compile Include="Loja\Modules\Repository\DataAccessModule.cs" />
+    <Compile Include="Loja\Modules\Repository\RepositoryModule.cs" />
+    <Compile Include="Compartilhado\Security\SecurityFactoryModule.cs" />
+    <Compile Include="Compartilhado\Security\SecurityModule.cs" />
+    <Compile Include="Compartilhado\Security\SecurityRepository.cs" />
+    <Compile Include="Loja\LojaContainer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Gerencia\Modules\Application\" />
+    <Folder Include="Gerencia\Modules\Domain\" />
+    <Folder Include="Gerencia\Modules\Repository\" />
+    <Folder Include="Gerencia\Modules\Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SimpleInjector, Version=3.2.2.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SimpleInjector.3.2.2\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFP.Infra.CrossCutting.Security\AutoFP.Infra.CrossCutting.Security.csproj">
+      <Project>{da6a2447-5e64-4ef5-a9b1-6ac1b26a67b4}</Project>
+      <Name>AutoFP.Infra.CrossCutting.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoFP.Infra.Data\AutoFP.Infra.Data.csproj">
+      <Project>{e975aa9d-4308-4aac-bd5e-e68f1d69b470}</Project>
+      <Name>AutoFP.Infra.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoFP.Loja.Crud.Application\AutoFP.Loja.Crud.Application.csproj">
+      <Project>{e4984d71-d9f8-4958-bd50-be61e2e6a4ff}</Project>
+      <Name>AutoFP.Loja.Crud.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoFP.Loja.Crud.Domain\AutoFP.Loja.Crud.Domain.csproj">
+      <Project>{b25f336c-30d7-42cf-ab01-67f33c88398c}</Project>
+      <Name>AutoFP.Loja.Crud.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoFP.Loja.Crud.Infra.Data\AutoFP.Loja.Crud.Infra.Data.csproj">
+      <Project>{334ef689-c9f8-4326-85f0-08a44b96c182}</Project>
+      <Name>AutoFP.Loja.Crud.Infra.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoFP.SharedKernel\AutoFP.SharedKernel.csproj">
+      <Project>{e6ddeb7d-f4ee-44e1-96f2-9400f3288b28}</Project>
+      <Name>AutoFP.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

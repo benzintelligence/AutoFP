@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E4984D71-D9F8-4958-BD50-BE61E2E6A4FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoFP.Loja.Crud.Application</RootNamespace>
+    <AssemblyName>AutoFP.Loja.Crud.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AppService\Base\BaseApplicationService.cs" />
+    <Compile Include="AppService\Veiculo\CarroApplicationService.cs" />
+    <Compile Include="AppService\Veiculo\ModeloApplicationService.cs" />
+    <Compile Include="Interface\Veiculo\ICarroApplicationService.cs" />
+    <Compile Include="Interface\Veiculo\IModeloApplicationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AutoFP.Infra.Data\AutoFP.Infra.Data.csproj">
+      <Project>{E975AA9D-4308-4AAC-BD5E-E68F1D69B470}</Project>
+      <Name>AutoFP.Infra.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoFP.Loja.Crud.Domain\AutoFP.Loja.Crud.Domain.csproj">
+      <Project>{b25f336c-30d7-42cf-ab01-67f33c88398c}</Project>
+      <Name>AutoFP.Loja.Crud.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoFP.SharedKernel\AutoFP.SharedKernel.csproj">
+      <Project>{E6DDEB7D-F4EE-44E1-96F2-9400F3288B28}</Project>
+      <Name>AutoFP.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

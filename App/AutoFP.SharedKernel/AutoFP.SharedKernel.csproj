@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E6DDEB7D-F4EE-44E1-96F2-9400F3288B28}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AutoFP.SharedKernel</RootNamespace>
+    <AssemblyName>AutoFP.SharedKernel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CQS\Command\Usuario\AtualizarSenhaCommand.cs" />
+    <Compile Include="CQS\Command\Usuario\RegistrarUsuarioCommand.cs" />
+    <Compile Include="CQS\Query\Veiculo\CarroQuery.cs" />
+    <Compile Include="CQS\Query\Veiculo\ModeloQuery.cs" />
+    <Compile Include="DomainEvents\Container\IContainer.cs" />
+    <Compile Include="DomainEvents\DomainEvent.cs" />
+    <Compile Include="DomainEvents\Events\IDomainEvent.cs" />
+    <Compile Include="DomainEvents\Handles\IHandler.cs" />
+    <Compile Include="Notification\Event\DomainNotification.cs" />
+    <Compile Include="Notification\Handler\DomainNotificationHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValueObjects\Enums\PecaParalela.cs" />
+    <Compile Include="ValueObjects\Enums\PecaStatus.cs" />
+    <Compile Include="ValueObjects\Enums\TipoPessoa.cs" />
+    <Compile Include="ValueObjects\Enums\TipoTelefone.cs" />
+    <Compile Include="ValueObjects\Enums\UnidadeFederativa.cs" />
+    <Compile Include="ValueObjects\Helpers\AnoHelper.cs" />
+    <Compile Include="ValueObjects\Helpers\EstadoHelper.cs" />
+    <Compile Include="ValueObjects\Resource\Loja\CRUD\Loja.CRUD.Errors.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Loja.CRUD.Errors.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ValueObjects\Resource\SharedContext\SecurityMessages.Designer.cs">
+      <DependentUpon>SecurityMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ValueObjects\Validation\AssertionConcern.cs" />
+    <Compile Include="ValueObjects\Validation\DocumentAssertionConcern.cs" />
+    <Compile Include="ValueObjects\Validation\EmailAssertionConcern.cs" />
+    <Compile Include="ValueObjects\Validation\PasswordAssertionConcern.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ValueObjects\Resource\Loja\CRUD\Loja.CRUD.Errors.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Loja.CRUD.Errors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValueObjects\Resource\SharedContext\SecurityMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SecurityMessages.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ValueObjects\Resource\Gerencia\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
