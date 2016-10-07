@@ -26,7 +26,9 @@ namespace AutoFP.Loja.API
 
         private static void ConfigureCors(HttpConfiguration config)
         {
-            const string origins = "http://localhost:14127, http://localhost:7000";
+            // 4200 = Loja
+            // 14127 = Admin
+            const string origins = "http://localhost:14127, http://localhost:4200";
             const string headers = "*";
             const string methods = "GET, POST, PUT, DELETE, OPTIONS";
             var cors = new EnableCorsAttribute(origins, headers, methods);
